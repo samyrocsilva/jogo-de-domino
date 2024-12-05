@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>w3chools</title>
+    <title>Dominó</title>
+    <style>
+       
+       header h1, p {
+        text-align: center;
+       }
+
+       header h1 {
+        font-size: 50px;
+       }
+       span#data {
+        font-size: 1.5em;
+        color: red;
+        }
+    </style>
+   
 </head>
 <body>
-    <h1>W3chools</h1>
-    <p id="demo"></p>
+    <header>
+        <h1>Torneio de Dominó</h1>
+        <p>Partida disputada em: <span id ='data'></span></p> <!-- Local da data -->
+    </header>
     <script>
-        function toCelsius(f) {
-            return (5/9) * (f -32);
+        function obterDataAtual() {
+            const hoje = new Date();
+            const dia = String(hoje.getDate()).padStart(2, 0);
+            const mes = String(hoje.getMonth() + 1).padStart(2, 0);
+            const ano = hoje.getFullYear();
+            
+            return dia + '/' + mes + '/' + ano;
         }
 
-        let value = toCelsius;
-        document.getElementById('demo').innerHTML = value;
+        document.getElementById('data').textContent = obterDataAtual();
     </script>
 </body>
 </html>
